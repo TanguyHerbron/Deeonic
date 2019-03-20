@@ -1,0 +1,26 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+
+  <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+
+  <div class="player">
+    <div class="player-controls" (click)="playMusic()">
+      <ion-icon *ngIf="!isPlaying" name="play"></ion-icon>
+      <ion-icon *ngIf="isPlaying" name="pause"></ion-icon>
+    </div>
+    <img class="player-cover" [src]="navParams.get('item').album.cover_medium" (click)="playMusic()">
+  </div>
+
+  <ion-list inset *ngFor="let track of tracks; let i = index">
+    <ion-item (click)="cardClicked(i)">
+      <ion-label class="title">{{track.title}}</ion-label>
+      <ion-label class="duration">{{track.duration}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

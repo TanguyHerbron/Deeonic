@@ -1,0 +1,31 @@
+page-details {
+
+}
+
+.player-cover {
+  border-radius: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.player-controls {
+  position: relative;
+  zoom: 4;
+  top: 12px;
+  left: 36px;
+  color: #FFF;
+}
+
+.player-controls * {
+  position: absolute;
+}
+
+.duration {
+  text-align: right;
+}
+
+ion-list {
+  margin: 0px;
+}

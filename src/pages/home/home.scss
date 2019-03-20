@@ -1,0 +1,45 @@
+page-home {
+}
+
+.card-text {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  color: black;
+  background-color: white;
+  height: 240px;
+  width: 180px;
+}
+
+.card-text ion-card-header {
+  position: relative;
+  color: black;
+  text-align: right;
+  top: -10px;
+}
+
+.card-text ion-card-content {
+
+  position: relative;
+  top: 100px;
+  text-align: right;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-text p {
+  position: relative;
+  text-align: right;
+  padding: 16px;
+  top: -40px;
+}
+
+ion-card img {
+  position: relative;
+  border-radius: 200px;
+  right: 50%;
+  width: auto;
+  overflow: hidden;
+  z-index: 1;
+}
