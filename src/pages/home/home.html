@@ -1,14 +1,15 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Deeonic
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="onInput($event)"></ion-searchbar>
-  <ion-list inset *ngFor="let data of searchResults; let i = index">
+
+  <ion-badge color="primary">Chansons</ion-badge>
+
+  <ion-list inset *ngFor="let data of tracks; let i = index">
     <ion-item>
       <ion-card (click)="cardClicked(i)">
         <img [src]="data.album.cover_medium" alt="cover">
@@ -22,4 +23,5 @@
       </ion-card>
     </ion-item>
   </ion-list>
+
 </ion-content>

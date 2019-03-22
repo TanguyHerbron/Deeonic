@@ -25743,3 +25743,8 @@ ion-card img {
   overflow: hidden;
   z-index: 1;
 }
+
+ion-tab {
+  color: black;
+  background-color: red;
+}

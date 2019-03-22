@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SearchResult} from "../../app/SearchResult";
 import {HttpClient} from "@angular/common/http";
-import {Artist} from "../../app/Artist";
-import {Album} from "../../app/Album";
 import {Track} from "../../app/Track";
 
 /**

@@ -1,0 +1,17 @@
+<ion-content padding>
+  <ion-searchbar (ionInput)="onInput($event)"></ion-searchbar>
+  <ion-list inset *ngFor="let data of searchResults; let i = index">
+    <ion-item>
+      <ion-card (click)="cardClicked(i)">
+        <img [src]="data.album.cover_medium" alt="cover">
+        <div class="card-text">
+          <ion-card-header>
+            {{data.title}}
+          </ion-card-header>
+          <p>{{data.artist.name}}</p>
+          <ion-card-content>{{data.album.title}}</ion-card-content>
+        </div>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
