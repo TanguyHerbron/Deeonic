@@ -1,4 +1,5 @@
 import {Artist} from "./Artist";
+import {Album} from "./Album";
 
 export class Track {
 
@@ -18,7 +19,8 @@ export class Track {
               public explicit_content_cover: number,
               public preview: string,
               public artist: Artist,
-              public type: string) {
+              public type: string,
+              public album: Album) {
 
   }
 

@@ -32,25 +32,7 @@ export class DetailsPage {
 
         for(let i = 0; i < data['data'].length; i++)
         {
-          this.tracks.push(new Track(
-            data['data'][i].id,
-            data['data'][i].readable,
-            data['data'][i].title,
-            data['data'][i].title_short,
-            data['data'][i].title_version,
-            data['data'][i].isrc,
-            data['data'][i].link,
-            this.time_formater(data['data'][i].duration),
-            data['data'][i].track_position,
-            data['data'][i].disk_number,
-            data['data'][i].rank,
-            data['data'][i].explicit_lyrics,
-            data['data'][i].explicit_content_lyrics,
-            data['data'][i].explicit_content_cover,
-            data['data'][i].preview,
-            null,
-            data['data'][i].type
-          ));
+          this.tracks.push(data['data'][i]);
         }
 
       });

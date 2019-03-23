@@ -5,23 +5,38 @@
   Ionic pages and navigation.
 -->
 
-<ion-content padding>
+<ion-content>
 
-  <ion-badge color="primary">Chansons</ion-badge>
+  <ion-badge class="trending-badge" color="primary">Trending albums</ion-badge>
 
-  <ion-list inset *ngFor="let data of tracks; let i = index">
-    <ion-item>
-      <ion-card (click)="cardClicked(i)">
-        <img [src]="data.album.cover_medium" alt="cover">
-        <div class="card-text">
-          <ion-card-header>
-            {{data.title}}
-          </ion-card-header>
-          <p>{{data.artist.name}}</p>
-          <ion-card-content>{{data.album.title}}</ion-card-content>
-        </div>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+  <ion-item>
+    <ion-scroll scrollX>
+      <div class="scroll-item">
+        <ion-col *ngFor="let album of trendingAlbums; let i = index">
+          <div class="card-album card-1" (click)="albumClicked(i)">
+            <img [src]="album.cover_medium">
+            <ion-label>{{album.title}}</ion-label>
+          </div>
+        </ion-col>
+      </div>
+    </ion-scroll>
+  </ion-item>
+
+  <ion-badge class="trending-badge" color="primary">Top artists</ion-badge>
+
+  <ion-item>
+    <ion-scroll scrollX>
+      <div class="scroll-item scroll-artist">
+        <ion-col *ngFor="let artist of trendingArtists; let i = index">
+          <div class="card-list" (click)="artistClicked(i)">
+            <div class="card-artist card-1">
+              <img [src]="artist.picture_medium">
+            </div>
+            <ion-label>{{artist.name}}</ion-label>
+          </div>
+        </ion-col>
+      </div>
+    </ion-scroll>
+  </ion-item>
 
 </ion-content>

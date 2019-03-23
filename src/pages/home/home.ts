@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {SearchResult} from "../../app/SearchResult";
-import {Artist} from "../../app/Artist";
-import {Album} from "../../app/Album";
+import { NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import {Track} from "../../app/Track";
+import {Album} from "../../app/Album";
+import {Artist} from "../../app/Artist";
 
 /**
  * Generated class for the HomePage page.
@@ -14,46 +13,49 @@ import {Track} from "../../app/Track";
  */
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+    selector: 'page-home',
+    templateUrl: 'home.html',
 })
 export class HomePage {
 
-  private tracks : Array<Track>;
+    private trendingTracks : Array<Track>;
+    private trendingAlbums : Array<Album>;
+    private trendingArtists : Array<Artist>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private httpClient: HttpClient) {
-    this.httpClient.get('https://api.deezer.com/chart')
-      .subscribe(trending => {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private httpClient: HttpClient) {
+        this.httpClient.get('https://api.deezer.com/chart/0/albums')
+            .subscribe(trending => {
 
-        this.tracks = new Array<Track>();
+                this.trendingAlbums = new Array<Album>();
 
-        for(let i = 0; i < trending['data'].length; i++)
-        {
-          this.tracks.push(new Track(
-            trending['tracks'].tracks[i].data.id,
-            trending['tracks'].tracks[i].data.readable,
-            trending['tracks'].tracks[i].data.title,
-            trending['tracks'].tracks[i].data.title_short,
-            trending['tracks'].tracks[i].data.title_version,
-            trending['tracks'].tracks[i].data.isrc,
-            trending['tracks'].tracks[i].data.link,
-            trending['tracks'].tracks[i].data.duration,
-            trending['tracks'].tracks[i].data.track_position,
-            trending['tracks'].tracks[i].data.disk_number,
-            trending['tracks'].tracks[i].data.rank,
-            trending['tracks'].tracks[i].data.explicit_lyrics,
-            trending['tracks'].tracks[i].data.explicit_content_lyrics,
-            trending['tracks'].tracks[i].data.explicit_content_cover,
-            trending['tracks'].tracks[i].data.preview,
-            trending['tracks'].tracks[i].data.artist,
-            trending['tracks'].tracks[i].data.type
-          ));
-        }
+                for(let i = 0; i < trending['data'].length; i++)
+                {
+                    this.trendingAlbums.push(trending['data'][i]);
+                }
 
-      });
-  }
+            });
 
-  ionViewDidLoad() {
-  }
+        this.httpClient.get('https://api.deezer.com/chart/0/artists')
+            .subscribe(trending => {
 
+                this.trendingArtists = new Array<Artist>();
+
+                for(let i = 0; i < trending['data'].length; i++)
+                {
+                    this.trendingArtists.push(trending['data'][i]);
+                }
+
+            });
+    }
+
+    ionViewDidLoad() {
+    }
+
+    albumClicked(i: number) {
+        
+    }
+
+    artistClicked(i: number) {
+
+    }
 }
