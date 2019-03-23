@@ -63,3 +63,5 @@ typings/
 \.editorconfig
 
 \.idea/
+
+platforms/
