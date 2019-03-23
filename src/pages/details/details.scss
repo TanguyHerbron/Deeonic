@@ -1,25 +1,36 @@
-page-details {
+ion-content {
+  margin-top: 0;
+}
 
+ion-app.md [padding] .scroll-content {
+  padding: 0;
+}
+
+#back-button {
+  padding: 16px;
+  zoom: 1.2;
 }
 
 .player-cover {
-  border-radius: 200px;
+  border-radius: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 150px;
 }
 
 .player-controls {
-  position: relative;
-  zoom: 4;
-  top: 12px;
-  left: 36px;
+  position: absolute;
   color: #FFF;
+  height: 150px;
+  width: 100%;
 }
 
-.player-controls * {
+.player-controls ion-icon {
   position: absolute;
+  zoom: 4;
+  left: 44%;
+  top: 0.6em;
 }
 
 .duration {
@@ -27,5 +38,5 @@ page-details {
 }
 
 ion-list {
-  margin: 0px;
+  margin: 0;
 }

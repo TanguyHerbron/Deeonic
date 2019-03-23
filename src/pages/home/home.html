@@ -7,6 +7,20 @@
 
 <ion-content>
 
+  <ion-badge class="trending-badge" color="primary">Best playlists</ion-badge>
+
+  <ion-item>
+    <ion-scroll scrollX class="scroll-playlist">
+      <div class="scroll-item">
+        <ion-col *ngFor="let playlist of trendingPlaylists; let i = index">
+          <div class="card-playlist card-1" (click)="playlistclicked(i)">
+            <img [src]="playlist.picture_medium">
+          </div>
+        </ion-col>
+      </div>
+    </ion-scroll>
+  </ion-item>
+
   <ion-badge class="trending-badge" color="primary">Trending albums</ion-badge>
 
   <ion-item>
@@ -25,14 +39,15 @@
   <ion-badge class="trending-badge" color="primary">Top artists</ion-badge>
 
   <ion-item>
-    <ion-scroll scrollX>
-      <div class="scroll-item scroll-artist">
+    <ion-scroll scrollX class="scroll-artist">
+      <div class="scroll-item">
         <ion-col *ngFor="let artist of trendingArtists; let i = index">
           <div class="card-list" (click)="artistClicked(i)">
             <div class="card-artist card-1">
               <img [src]="artist.picture_medium">
             </div>
             <ion-label>{{artist.name}}</ion-label>
+            <ion-label class="fan-label">{{artist.nb_fan_form}} fans</ion-label>
           </div>
         </ion-col>
       </div>

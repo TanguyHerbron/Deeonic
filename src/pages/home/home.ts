@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
-import {Track} from "../../app/Track";
 import {Album} from "../../app/Album";
 import {Artist} from "../../app/Artist";
+import {Playlist} from "../../app/Playlist";
 
 /**
  * Generated class for the HomePage page.
@@ -18,7 +18,7 @@ import {Artist} from "../../app/Artist";
 })
 export class HomePage {
 
-    private trendingTracks : Array<Track>;
+    private trendingPlaylists : Array<Playlist>;
     private trendingAlbums : Array<Album>;
     private trendingArtists : Array<Artist>;
 
@@ -35,6 +35,18 @@ export class HomePage {
 
             });
 
+        this.httpClient.get('https://api.deezer.com/chart/0/playlists')
+            .subscribe(playlists => {
+
+                this.trendingPlaylists = new Array<Playlist>();
+
+                for(let i = 0; i < playlists['data'].length; i++)
+                {
+                    this.trendingPlaylists.push(playlists['data'][i]);
+                }
+
+            });
+
         this.httpClient.get('https://api.deezer.com/chart/0/artists')
             .subscribe(trending => {
 
@@ -42,9 +54,12 @@ export class HomePage {
 
                 for(let i = 0; i < trending['data'].length; i++)
                 {
-                    this.trendingArtists.push(trending['data'][i]);
+                    this.httpClient.get('https://api.deezer.com/artist/' + trending['data'][i].id)
+                        .subscribe(artist => {
+                            (<Artist> artist).nb_fan_form = new Intl.NumberFormat('de-DE', {}).format((<Artist>artist).nb_fan);
+                            this.trendingArtists.push(<Artist>artist);
+                        });
                 }
-
             });
     }
 
@@ -56,6 +71,10 @@ export class HomePage {
     }
 
     artistClicked(i: number) {
+
+    }
+
+    playlistclicked(i: number) {
 
     }
 }

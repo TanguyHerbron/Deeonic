@@ -25674,24 +25674,39 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+ion-content {
+  margin-top: 0;
+}
+
+ion-app.md [padding] .scroll-content {
+  padding: 0;
+}
+
+#back-button {
+  padding: 16px;
+  zoom: 1.2;
+}
+
 .player-cover {
-  border-radius: 200px;
+  border-radius: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 150px;
 }
 
 .player-controls {
-  position: relative;
-  zoom: 4;
-  top: 12px;
-  left: 36px;
+  position: absolute;
   color: #FFF;
+  height: 150px;
+  width: 100%;
 }
 
-.player-controls * {
+.player-controls ion-icon {
   position: absolute;
+  zoom: 4;
+  left: 44%;
+  top: 0.6em;
 }
 
 .duration {
@@ -25699,11 +25714,16 @@ ion-navbar.toolbar {
 }
 
 ion-list {
-  margin: 0px;
+  margin: 0;
 }
 
-page-home {
-  padding-top: 16px;
+ion-content {
+  margin-top: 32px;
+}
+
+ion-badge.trending-badge {
+  margin-top: 0;
+  margin-left: 15px;
 }
 
 ion-item.item.item-block.item-md {
@@ -25730,19 +25750,30 @@ ion-label.label.label-ios {
   margin-right: 0;
 }
 
-ion-badge.trending-badge {
-  margin-top: 15px;
-  margin-left: 15px;
+.item-md.item-block .item-inner {
+  border-bottom: 0;
+}
+
+.item-ios.item-block .item-inner {
+  border-bottom: 0;
 }
 
 ion-scroll[scrollX] {
-  height: 140px;
+  height: 150px;
   white-space: nowrap;
   padding: 0;
 }
 
 ion-scroll[scrollX] .scroll-item {
   display: inline-block;
+}
+
+ion-scroll[scrollX].scroll-artist {
+  height: 170px;
+}
+
+ion-scroll[scrollX].scroll-playlist {
+  height: 190px;
 }
 
 ion-scroll .card-1:hover {
@@ -25755,6 +25786,22 @@ ion-scroll .card-1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+ion-scroll .card-playlist {
+  margin-top: 5px;
+  display: inline-block;
+  height: 150px;
+  position: relative;
+  width: 150px;
+  border-radius: 2%;
+  overflow: hidden;
+}
+
+ion-scroll .card-playlist img {
+  position: relative;
+  width: auto;
+  z-index: -1;
 }
 
 div.card-album.card-1 {
@@ -25813,10 +25860,12 @@ ion-scroll div .card-artist img {
 
 .card-list .label-md {
   margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .card-list .label-ios {
   margin-top: 5px;
+  margin-bottom: 0;
 }
 
 ion-scroll div ion-label {
@@ -25828,6 +25877,11 @@ ion-scroll div ion-label {
 
 div.card-artist.card-1 {
   height: 100px;
+}
+
+.fan-label {
+  color: grey;
+  font-size: 70%;
 }
 
 .card-text {
