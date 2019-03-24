@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {DetailsPage} from "../pages/details/details";
 import {TabsPage} from "../pages/tabs/tabs";
 import {HomePage} from "../pages/home/home";
+import {InfoPage} from "../pages/info/info";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {HomePage} from "../pages/home/home";
     TabsPage,
     HomePage,
     SearchPage,
+    InfoPage,
     DetailsPage
   ],
   imports: [
@@ -30,6 +32,7 @@ import {HomePage} from "../pages/home/home";
     TabsPage,
     HomePage,
     SearchPage,
+    InfoPage,
     DetailsPage
   ],
   providers: [

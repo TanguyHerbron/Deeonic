@@ -25674,17 +25674,18 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-ion-content {
-  margin-top: 0;
-}
-
 ion-app.md [padding] .scroll-content {
   padding: 0;
 }
 
 #back-button {
+  margin-top: 8px;
   padding: 16px;
   zoom: 1.2;
+}
+
+.player {
+  margin-bottom: 16px;
 }
 
 .player-cover {
@@ -25713,12 +25714,14 @@ ion-app.md [padding] .scroll-content {
   text-align: right;
 }
 
-ion-list {
-  margin: 0;
+.song-list {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+  border-top: 1px solid lightgrey;
 }
 
-ion-content {
-  margin-top: 32px;
+.top-spacing {
+  margin-top: 28px;
 }
 
 ion-badge.trending-badge {
@@ -25804,11 +25807,11 @@ ion-scroll .card-playlist img {
   z-index: -1;
 }
 
-div.card-album.card-1 {
+div.card-trending-album.card-1 {
   background-color: rgba(1, 1, 1, 0.2);
 }
 
-ion-scroll .card-album {
+ion-scroll .card-trending-album {
   margin-top: 5px;
   display: inline-block;
   height: 100px;
@@ -25818,13 +25821,13 @@ ion-scroll .card-album {
   overflow: hidden;
 }
 
-ion-scroll .card-album img {
+ion-scroll .card-trending-album img {
   position: relative;
   width: auto;
   z-index: -1;
 }
 
-ion-scroll .card-album ion-label {
+ion-scroll .card-trending-album ion-label {
   margin: 0;
   position: absolute;
   bottom: 10px;
@@ -25884,13 +25887,53 @@ div.card-artist.card-1 {
   font-size: 70%;
 }
 
+.info-label {
+  margin: 50px auto auto;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.github-link {
+  position: relative;
+}
+
+.source-code-link {
+  text-align: center;
+  height: 50px;
+}
+
+.source-code-label {
+  position: relative;
+  text-align: center;
+}
+
+ion-app.ios [padding] .scroll-content {
+  padding: 0;
+}
+
+.list-md[inset], .list-ios[inset], .list-wp[inset] {
+  margin: 0;
+}
+
+.card-md, .card-ios, .card-wp {
+  margin: 0;
+}
+
+.card-md + ion-card, .card-ios + ion-card, .card-wp + ion-card {
+  margin-top: 2px;
+}
+
+.card-md + .radio-card, .card-ios + .radio-card, .card-wp + .radio-card {
+  margin: 0;
+}
+
 .card-text {
   position: absolute;
-  top: 24px;
+  top: 32px;
   right: 26px;
   color: black;
   background-color: white;
-  height: 240px;
+  height: auto;
   width: 180px;
 }
 
@@ -25898,12 +25941,12 @@ div.card-artist.card-1 {
   position: relative;
   color: black;
   text-align: right;
-  top: -10px;
+  top: 0;
 }
 
 .card-text ion-card-content {
   position: relative;
-  top: 100px;
+  top: 80px;
   text-align: right;
   overflow: hidden;
   white-space: nowrap;
@@ -25914,14 +25957,56 @@ div.card-artist.card-1 {
   position: relative;
   text-align: right;
   padding: 16px;
-  top: -40px;
+  top: -30px;
 }
 
-ion-card img {
+.card-album .album-cover {
   position: relative;
-  border-radius: 200px;
-  right: 50%;
+  border-radius: 50%;
+  right: 30%;
   width: auto;
   overflow: hidden;
   z-index: 1;
+}
+
+.card-album {
+  border-radius: 10% !important;
+  margin: 2px 16px;
+  width: inherit;
+}
+
+.radio-card {
+  height: 150px;
+  width: 150px;
+  float: left;
+  margin-left: 20px;
+}
+
+.radio-card img {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+}
+
+.radio-card ion-card-content {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  width: inherit;
+  height: inherit;
+  top: 25%;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.radio-item {
+  display: inline-block;
+}
+
+.second-card {
+  float: right;
+  left: 100px;
+  margin-right: 18px !important;
 }

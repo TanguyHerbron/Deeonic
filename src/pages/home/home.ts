@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Events} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import {Album} from "../../app/Album";
 import {Artist} from "../../app/Artist";
@@ -22,7 +22,7 @@ export class HomePage {
     private trendingAlbums : Array<Album>;
     private trendingArtists : Array<Artist>;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, public events: Events) {
         this.httpClient.get('https://api.deezer.com/chart/0/albums')
             .subscribe(trending => {
 
@@ -67,14 +67,14 @@ export class HomePage {
     }
 
     albumClicked(i: number) {
-        
+        this.events.publish('feature:missing');
     }
 
     artistClicked(i: number) {
-
+        this.events.publish('feature:missing');
     }
 
     playlistclicked(i: number) {
-
+        this.events.publish('feature:missing');
     }
 }

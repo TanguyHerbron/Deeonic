@@ -1,17 +1,39 @@
 <ion-content padding>
+
+  <div class="top-spacing"></div>
+
   <ion-searchbar (ionInput)="onInput($event)"></ion-searchbar>
-  <ion-list inset *ngFor="let data of searchResults; let i = index">
-    <ion-item>
-      <ion-card (click)="cardClicked(i)">
-        <img [src]="data.album.cover_medium" alt="cover">
-        <div class="card-text">
-          <ion-card-header>
-            {{data.title}}
-          </ion-card-header>
-          <p>{{data.artist.name}}</p>
-          <ion-card-content>{{data.album.title}}</ion-card-content>
-        </div>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+
+  <div *ngIf="!showResult">
+    <ion-list inset *ngFor="let radio of radios; let i = index">
+      <ion-item *ngIf="i % 2 == 0" class="radio-item">
+        <ion-card class="radio-card" (click)="radioClicked(i)">
+          <img [src]="radios[i].picture_medium" alt="cover">
+          <ion-card-content>{{radios[i].title}}</ion-card-content>
+        </ion-card>
+        <ion-card class="radio-card second-card" (click)="radioClicked(i)">
+          <img [src]="radios[i+1].picture_medium" alt="cover">
+          <ion-card-content>{{radios[i+1].title}}</ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="showResult">
+    <ion-list inset *ngFor="let data of searchResults; let i = index">
+      <ion-item>
+        <ion-card class="card-album" (click)="albumClicked(i)">
+          <img class="album-cover" [src]="data.album.cover_medium" alt="cover">
+          <div class="card-text">
+            <ion-card-header>
+              {{data.title}}
+            </ion-card-header>
+            <p>{{data.artist.name}}</p>
+            <ion-card-content>{{data.album.title}}</ion-card-content>
+          </div>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>

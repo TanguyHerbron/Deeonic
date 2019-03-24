@@ -1,0 +1,22 @@
+import { Component } from '@angular/core';
+
+/**
+ * Generated class for the InfoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@Component({
+  selector: 'page-info',
+  templateUrl: 'info.html',
+})
+export class InfoPage {
+
+  constructor() {
+  }
+
+    githubLink() {
+        window.open("https://github.com/TanguyHerbron/Deeonic");
+    }
+}

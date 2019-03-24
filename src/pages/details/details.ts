@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, Platform} from 'ionic-angular';
 import {SearchResult} from "../../app/SearchResult";
 import {HttpClient} from "@angular/common/http";
 import {Track} from "../../app/Track";
@@ -11,7 +11,6 @@ import {Track} from "../../app/Track";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-details',
   templateUrl: 'details.html',
@@ -22,7 +21,7 @@ export class DetailsPage {
   private res: SearchResult;
   private tracks: Array<Track>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private httpClient: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private httpClient: HttpClient, private platform: Platform) {
     this.res = navParams.get("item");
 
     this.httpClient.get(this.res.album.tracklist)
@@ -32,10 +31,18 @@ export class DetailsPage {
 
         for(let i = 0; i < data['data'].length; i++)
         {
+          let track: Track = data['data'][i];
+
+          track.duration = this.time_formater(track.duration);
+
           this.tracks.push(data['data'][i]);
         }
 
       });
+
+    platform.registerBackButtonAction(() => {
+      this.goBack();
+    })
   }
 
   playMusic() {

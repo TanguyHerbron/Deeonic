@@ -17,7 +17,7 @@
     <img class="player-cover" [src]="navParams.get('item').album.cover_medium" (click)="playMusic()">
   </div>
 
-  <ion-list inset *ngFor="let track of tracks; let i = index">
+  <ion-list class="song-list" inset *ngFor="let track of tracks; let i = index">
     <ion-item (click)="cardClicked(i)">
       <ion-label class="title">{{track.title}}</ion-label>
       <ion-label class="duration">{{track.duration}}</ion-label>

@@ -1,5 +1,5 @@
-ion-content {
-  margin-top: 32px;
+.top-spacing {
+  margin-top: 28px;
 }
 
 ion-badge.trending-badge {
@@ -82,11 +82,11 @@ ion-scroll .card-playlist img {
   z-index: -1;
 }
 
-div.card-album.card-1 {
+div.card-trending-album.card-1 {
   background-color: rgba(0.8, 0.8, 0.8, 0.2);
 }
 
-ion-scroll .card-album {
+ion-scroll .card-trending-album {
   margin-top: 5px;
   display: inline-block;
   height: 100px;
@@ -96,13 +96,13 @@ ion-scroll .card-album {
   overflow: hidden;
 }
 
-ion-scroll .card-album img {
+ion-scroll .card-trending-album img {
   position: relative;
   width: auto;
   z-index: -1;
 }
 
-ion-scroll .card-album ion-label {
+ion-scroll .card-trending-album ion-label {
   margin: 0;
   position: absolute;
   bottom: 10px;

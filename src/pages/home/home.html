@@ -7,6 +7,8 @@
 
 <ion-content>
 
+  <div class="top-spacing"></div>
+
   <ion-badge class="trending-badge" color="primary">Best playlists</ion-badge>
 
   <ion-item>
@@ -27,7 +29,7 @@
     <ion-scroll scrollX>
       <div class="scroll-item">
         <ion-col *ngFor="let album of trendingAlbums; let i = index">
-          <div class="card-album card-1" (click)="albumClicked(i)">
+          <div class="card-trending-album card-1" (click)="albumClicked(i)">
             <img [src]="album.cover_medium">
             <ion-label>{{album.title}}</ion-label>
           </div>
